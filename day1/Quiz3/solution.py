@@ -1,12 +1,24 @@
-입력 된 세 문자열의 모든 문자를 그룹으로 결합하는 문자열을 반환하는 함수를 만듭니다. 모든 입력의 첫 글자를 가져 와서 서로 그룹화합니다. 
-모든 편지에 대해이 작업을 수행하십시오. 
-아래 예를 참조하십시오!
+#"1234"  // true
+#"12345" // false
+#"a234"  // false
+#"0000"    // true
+#"1111"    // true
+#"123456"  // true
+#"098765"  // true
+#"000000"  // true
+#"090909"  // true
 
-E.g. Input: "aa", "bb" , "cc" => Output: "abcabc"
+import re 
 
-tripleTrouble(one, two, three)
+def pinChk(pinNum):
+    strChk = re.sub('[0-9]','',pinNum)
+    numChk = re.sub('[^0-9]','',pinNum)
+    print(strChk)
+    if len(strChk) == 0 and (len(numChk) == 4 or len(numChk) == 6):
+        return True
 
-tripleTrouble("this","test","lock"), "ttlheoiscstk"
-tripleTrouble("aa","bb","cc"), "abcabc"
-tripleTrouble("Bm", "aa", "tn"), "Batman"
-tripleTrouble("LLh","euo","xtr"), "LexLuthor"
+    return False
+
+if __name__ == "__main__":
+    result = pinChk('023451')
+    print(result)
