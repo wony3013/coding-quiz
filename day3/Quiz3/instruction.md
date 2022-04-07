@@ -15,6 +15,20 @@ maze = [[1,1,1,1,1,1,1],
         [1,0,0,0,0,0,1],
         [1,2,1,0,1,0,1]]
 
+
+        O1. maze 배열에서 2값의 좌표를 x,y에 저장
+        O2. E = x, y + 1 
+            W = x, y - 1
+            S = x + 1, y
+            N = x - 1, y
+        R1. 한 방향으로 이동 후 상태 체크
+              0 = 다음 단계 진행
+              1 = 벽 -> return "Dead"
+              2 = 다음 단계 진행
+              3 = return "Finish"
+            배열 밖으로 이동 시(에러) return "Dead"  
+        R2. move 배열 종료 시 return "Lost"
+
       0 = Safe place to walk
       1 = Wall
       2 = Start Point
