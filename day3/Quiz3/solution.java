@@ -1,5 +1,3 @@
-import java.util.HashMap;
-
 public class solution {
 
     public static int currX = 0; // 현재 x 좌표
@@ -18,6 +16,9 @@ public class solution {
                         {1,0,1,0,1,0,1},
                         {1,0,0,0,0,0,1},
                         {1,2,1,0,1,0,1}};
+
+        maxX = maze.length;
+        maxY = maze[0].length;
 
         String[] input = {"N","N","N","N","N","E","E","E","E","E"};
 
@@ -40,23 +41,25 @@ public class solution {
      */
     public static String mazeRunner(int[][] maze, String[] input) {
 
-        Stgring result = "None";
-
         if(getStart(maze)){ // start 지점 찾을 시 시작
+            System.out.println("start - x : " + currX);
+            System.out.println("start - Y : " + currY);
             // x,y 이동
             for (String way : input) {
-                runMaze(input);
+                runMaze(way);
                 // 범위 체크
                 if(maxX > currX && maxY > currY){
                     // 상태값 불러온 후 상태체크하여 결과 return
-                    int helth = maze[y][x];
+                    int helth = maze[currY][currX];
+                    System.out.println("way : " + way);
+                    System.out.println("currX : " + currX);
+                    System.out.println("currY : " + currY);
+                    System.out.println("helth : " + helth);
                     switch (helth) {
                         case 1: // 벽
                             return "Dead";
-                            break;
                         case 3: // 종료
                             return "Finish";
-                            break;
                         default:
                             break;
                     }
